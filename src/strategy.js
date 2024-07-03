@@ -53,6 +53,10 @@ function Strategy(options, verify) {
     options.tokenURL = options.tokenURL || 'https://appleid.apple.com/auth/token';
     options.passReqToCallback = options.passReqToCallback === undefined ? true : options.passReqToCallback
 
+    if(options.usePopup) {
+      options.usePopup = '1';
+    }
+
     // Make the OAuth call
     OAuth2Strategy.call(this, options, verify);
     this.name = 'apple';
